@@ -6,6 +6,12 @@ A simple third person character controller in Unity
 
 https://github.com/user-attachments/assets/41f60077-36a4-420c-842e-f91c5fab51b6
 
+## Adding features
+
+- The implementation of Coin UI and Animation
+- settings menu, you can use the menu to adjust the speed
+-  Implementation of In-world tutorial canvas, dual gameplay
+
 ## Demo
 
 https://github.com/user-attachments/assets/91485280-b86b-4c82-ac11-2a5107730e94
