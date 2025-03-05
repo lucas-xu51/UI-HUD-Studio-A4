@@ -8,6 +8,9 @@ public class CoinCounterUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI toUpdate;
     [SerializeField] private Transform coinTextContainer;
     [SerializeField] private float duration;
+
+    [SerializeField] private Ease animationCurve;
+
     private float containerInitPosition;
     private float moveAmount;
     private void Start()
@@ -23,7 +26,7 @@ public class CoinCounterUI : MonoBehaviour
         // set the score to the masked text UI
         toUpdate.SetText($"{score}");
         // trigger the local move animation
-        coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration);
+        coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(animationCurve);
         StartCoroutine(ResetCoinContainer(score));
     }
 
