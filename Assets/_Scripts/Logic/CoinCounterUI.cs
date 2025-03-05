@@ -13,23 +13,38 @@ public class CoinCounterUI : MonoBehaviour
 
     private float containerInitPosition;
     private float moveAmount;
+    //private void Start()
+    //{
+    //    current.SetText("0");
+    //    toUpdate.SetText("0");
+    //    containerInitPosition = coinTextContainer.localPosition.y + 58;
+    //    moveAmount = current.rectTransform.rect.height;
+    //    Debug.Log(containerInitPosition);
+    //    Debug.Log(moveAmount);
+    //}
+
+    //public void UpdateScore(int score)
+    //{
+    //    // set the score to the masked text UI
+    //    toUpdate.SetText($"{score}");
+    //    // trigger the local move animation
+    //    //coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(animationCurve);
+    //    coinTextContainer.DOLocalMoveY(173, duration).SetEase(animationCurve);
+    //    StartCoroutine(ResetCoinContainer(score));
+    //}
+
     private void Start()
     {
         current.SetText("0");
         toUpdate.SetText("0");
-        containerInitPosition = coinTextContainer.localPosition.y + 58;
-        moveAmount = current.rectTransform.rect.height;
-        Debug.Log(containerInitPosition);
-        Debug.Log(moveAmount);
     }
 
     public void UpdateScore(int score)
     {
-        // set the score to the masked text UI
+        containerInitPosition = coinTextContainer.localPosition.y;
+        moveAmount = current.rectTransform.rect.height;
         toUpdate.SetText($"{score}");
-        // trigger the local move animation
-        //coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(animationCurve);
-        coinTextContainer.DOLocalMoveY(173, duration).SetEase(animationCurve);
+        coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(animationCurve);
         StartCoroutine(ResetCoinContainer(score));
     }
 
