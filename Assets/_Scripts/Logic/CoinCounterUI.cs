@@ -17,8 +17,10 @@ public class CoinCounterUI : MonoBehaviour
     {
         current.SetText("0");
         toUpdate.SetText("0");
-        containerInitPosition = coinTextContainer.localPosition.y;
+        containerInitPosition = coinTextContainer.localPosition.y + 58;
         moveAmount = current.rectTransform.rect.height;
+        Debug.Log(containerInitPosition);
+        Debug.Log(moveAmount);
     }
 
     public void UpdateScore(int score)
@@ -26,7 +28,8 @@ public class CoinCounterUI : MonoBehaviour
         // set the score to the masked text UI
         toUpdate.SetText($"{score}");
         // trigger the local move animation
-        coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(animationCurve);
+        //coinTextContainer.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(animationCurve);
+        coinTextContainer.DOLocalMoveY(173, duration).SetEase(animationCurve);
         StartCoroutine(ResetCoinContainer(score));
     }
 
@@ -37,8 +40,7 @@ public class CoinCounterUI : MonoBehaviour
         // we use duration since that's the same time as the animation
         current.SetText($"{score}"); // update the original score
         Vector3 localPosition = coinTextContainer.localPosition;
-        coinTextContainer.localPosition = new Vector3(localPosition.x,
-        containerInitPosition, localPosition.z);
+        coinTextContainer.localPosition = new Vector3(localPosition.x, containerInitPosition, localPosition.z);
         // then reset the y-localPosition of the coinTextContainer
     }
 
